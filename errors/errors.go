@@ -51,7 +51,10 @@ func (e Error) Error() string {
 	Extends an error to include information about
 	function invocations.
 */
-func Extend(e error) Error {
+func Extend(e error) error {
+	if e == nil{
+		return nil
+	}
 
 	stk := make([]uintptr, maxStackLen)
 	num := runtime.Callers(3, stk)
@@ -78,6 +81,6 @@ func Extend(e error) Error {
 	Creates a new error that returns error 's' as well as 
 	function frame stack information.
 */
-func New(s string) Error {
+func New(s string) error {
 	return Extend(errors.New(s))
 }
