@@ -50,6 +50,10 @@ func (e Error) Error() string {
 /*
 	Extends an error to include information about
 	function invocations.
+
+	If a nil error is recieved, a nil error is returned,
+	allowing this to be used as a wrap for an error return value
+	that may or may not be nil.
 */
 func Extend(e error) error {
 	if e == nil{
