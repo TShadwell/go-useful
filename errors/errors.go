@@ -1,3 +1,12 @@
+/*
+	Package errors impliments an error interface that embeds an error
+	and provvides a call stack trace for the error.
+
+	Chaining these errors will not cause stack duplication,
+	instead showing the trace from the deepest part of the program outward.
+
+	Errors can trace no further than 20 calls.
+*/
 package errors
 
 import (
