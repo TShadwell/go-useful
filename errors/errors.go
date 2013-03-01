@@ -49,9 +49,7 @@ func (e Error) Error() string {
 
 /*
 	Extends an error to include information about
-	function invocations 'frames' long.
-
-	Frames defaults to 1 (just callee).
+	function invocations.
 */
 func Extend(e error) Error {
 
@@ -78,9 +76,7 @@ func Extend(e error) Error {
 
 /*
 	Creates a new error that returns error 's' as well as 
-	function frame stack 'frames' long.
-
-	Frames defaults to 1 (just callee).
+	function frame stack information.
 */
 func New(s string) Error {
 	return Extend(errors.New(s))
