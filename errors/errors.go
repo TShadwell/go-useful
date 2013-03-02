@@ -56,7 +56,11 @@ func (e Error) Error() string {
 	that may or may not be nil.
 */
 func Extend(e error) error {
-	if e == nil{
+	return extend(e)
+}
+
+func extend(e error) error {
+	if e == nil {
 		return nil
 	}
 
@@ -86,5 +90,5 @@ func Extend(e error) error {
 	function frame stack information.
 */
 func New(s string) error {
-	return Extend(errors.New(s))
+	return extend(errors.New(s))
 }
